@@ -8,6 +8,8 @@ public abstract class Attack {
 
     private int skillLevel = 0;
 
+    private int usedTimes = 0;
+
     public abstract int damage();
 
     public int getSkillLevel() {
@@ -16,10 +18,10 @@ public abstract class Attack {
 
     private boolean attackHitted() {
 
-        int hitInt = (int) (Math.random() * 100);
+        int hitInt = (int) (Math.random() * 200);
         hitInt += skillLevel;
 
-        if (hitInt >= 50) {
+        if (hitInt >= 60) {
             return true;
         } else {
             return false;
@@ -39,7 +41,7 @@ public abstract class Attack {
     }
 
     public void levelUp() {
-        if (skillLevel < 49) {
+        if (skillLevel <= 50) {
             skillLevel += 1;
         }
     }
@@ -58,6 +60,13 @@ public abstract class Attack {
             return 0;
         }
 
+    }
+
+    public void weaponUsed() {
+        usedTimes += 1;
+        if (usedTimes % 10 == 0) {
+            levelUp();
+        }
     }
 
 }
