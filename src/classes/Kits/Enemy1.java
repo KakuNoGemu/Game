@@ -1,5 +1,22 @@
 package classes.Kits;
 
-public class Enemy1 {
+import java.util.ArrayList;
+import java.util.List;
 
+import classes.Attacks.Attack;
+
+public class Enemy1 extends Kit {
+
+	public int health() {
+
+		return 100;
+	}
+
+	@Override
+	public List<Attack> attackList() {
+		List<Attack> attacks = new ArrayList<>();
+
+		attacks.add(new EAttack());
+		return attacks;
+	}
 }

@@ -9,7 +9,7 @@ public class Sword extends Attack {
     @Override
     public int damage() {
 
-        return 10;
+        return 20;
 
     }
 }

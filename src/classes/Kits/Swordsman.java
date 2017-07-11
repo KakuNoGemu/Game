@@ -16,7 +16,7 @@ public class Swordsman extends Kit {
      */
     @Override
     public int health() {
-        return 100;
+        return 300;
     }
 
 

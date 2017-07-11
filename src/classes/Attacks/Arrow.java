@@ -9,6 +9,6 @@ public class Arrow extends Attack {
 
     @Override
     public int damage() {
-        return 13;
+        return 30;
     }
 }

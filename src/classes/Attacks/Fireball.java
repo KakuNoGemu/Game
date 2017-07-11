@@ -10,7 +10,7 @@ public class Fireball extends Attack {
     @Override
     public int damage() {
 
-        return 14;
+        return 50;
     }
 }
 

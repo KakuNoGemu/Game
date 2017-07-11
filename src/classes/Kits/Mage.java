@@ -16,7 +16,7 @@ public class Mage extends Kit {
      */
     @Override
     public int health() {
-        return 70;
+        return 120;
     }
 
 

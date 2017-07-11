@@ -17,7 +17,7 @@ public class Marksman extends Kit {
      */
     @Override
     public int health() {
-        return 80;
+        return 200;
     }
 
     /**
