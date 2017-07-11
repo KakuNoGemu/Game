@@ -30,4 +30,9 @@ public class Marksman extends Kit {
         attacks.add(new Arrow());
         return attacks;
     }
+
+    @Override
+    public int goldDrop() {
+        return 10;
+    }
 }

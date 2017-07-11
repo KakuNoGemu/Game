@@ -30,4 +30,9 @@ public class Mage extends Kit {
         attacks.add(new classes.Attacks.Fireball());
         return attacks;
     }
+
+    @Override
+    public int goldDrop() {
+        return 10;
+    }
 }

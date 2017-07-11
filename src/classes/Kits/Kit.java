@@ -11,7 +11,19 @@ public abstract class Kit {
 
     abstract int health();
 
-    public double health = health();
+    private int experience = 0;
+
+    private int maxExperience = 100;
+
+    private int level = 0;
+
+    private int gold = 0;
+
+    private boolean isLiving = true;
+
+    abstract int goldDrop();
+
+    private double health = health();
 
     public abstract List<Attack> attackList();
 
@@ -42,7 +54,28 @@ public abstract class Kit {
         System.out.println(message);
         double damage = dealtDamage(attack, dealtDamageMultiplier);
         kit.hurt(damage);
+        attack.weaponUsed();
 
+    }
+
+    private void levelUp() {
+        level += 1;
+        experience -= maxExperience;
+        maxExperience += 10;
+        gold += 20;
+    }
+
+    public void kill(Kit kit) {
+        kit.killed();
+        experience += 10;
+        if (experience >= maxExperience) {
+            levelUp();
+        }
+        gold += kit.goldDrop();
+    }
+
+    private void killed() {
+        isLiving = false;
     }
 
 }
