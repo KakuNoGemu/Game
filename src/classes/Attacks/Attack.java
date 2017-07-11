@@ -19,7 +19,7 @@ public abstract class Attack {
         int hitInt = (int) (Math.random() * 100);
         hitInt += skillLevel;
 
-        if (hitInt >= 50) {
+        if (hitInt >= 30) {
             return true;
         } else {
             return false;

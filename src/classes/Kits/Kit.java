@@ -1,7 +1,6 @@
 package classes.Kits;
 
 import classes.Attacks.Attack;
-import classes.Attacks.Fireball;
 
 import java.util.List;
 
@@ -10,17 +9,25 @@ import java.util.List;
  */
 public abstract class Kit {
 
-    public abstract int health();
+    abstract int health();
+
+    public double health = health();
 
     public abstract List<Attack> attackList();
 
-    private double dealtDamage(Attack attack, double dealtDamageMultiplier) {
-
-        return attack.damage() * dealtDamageMultiplier;
-
+    public double getHealth() {
+        return health;
     }
 
-    public double attack(Attack attack) {
+    public void hurt(double damage) {
+        health -= damage;
+    }
+
+    private double dealtDamage(Attack attack, double dealtDamageMultiplier) {
+        return attack.damage() * dealtDamageMultiplier;
+    }
+
+    public void attack(Kit kit, Attack attack) {
 
         String message;
         double dealtDamageMultiplier = attack.dealtDamageMultiplier();
@@ -34,7 +41,7 @@ public abstract class Kit {
 
         System.out.println(message);
         double damage = dealtDamage(attack, dealtDamageMultiplier);
-        return damage;
+        kit.hurt(damage);
 
     }
 
