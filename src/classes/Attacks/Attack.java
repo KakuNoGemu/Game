@@ -44,7 +44,7 @@ public abstract class Attack {
         }
     }
 
-    public double dealtDamage() {
+    public double dealtDamageMultiplier() {
 
         if (attackHitted()) {
 
