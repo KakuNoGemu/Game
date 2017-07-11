@@ -6,11 +6,15 @@ package classes.Attacks;
  */
 public abstract class Attack {
 
+    private int skillLevel = 0;
+
     public abstract int damage();
 
-    public int skillLevel = 0;
-    
-    public boolean attackHitted(String enemy) {
+    public int getSkillLevel() {
+        return skillLevel;
+    }
+
+    private boolean attackHitted() {
 
         int hitInt = (int) (Math.random() * 100);
         hitInt += skillLevel;
@@ -22,7 +26,38 @@ public abstract class Attack {
         }
     }
 
+    private boolean criticalHit() {
 
+        int hitInt = (int) (Math.random() * 100);
+        hitInt += skillLevel;
 
+        if (hitInt >= 90) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void levelUp() {
+        if (skillLevel < 49) {
+            skillLevel += 1;
+        }
+    }
+
+    public double dealtDamage() {
+
+        if (attackHitted()) {
+
+            if (criticalHit()) {
+                return 1.5;
+            } else {
+                return 1;
+            }
+
+        } else {
+            return 0;
+        }
+
+    }
 
 }

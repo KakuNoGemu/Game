@@ -9,8 +9,10 @@ import java.util.List;
  */
 public abstract class Kit {
 
+    // Health of the kit
     public abstract int health();
 
+    //
     public abstract List<Attack> attackList();
 
 }
