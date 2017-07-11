@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import classes.Attacks.Attack;
+import classes.Attacks.EAttack;
 
 public class Enemy1 extends Kit {
 
