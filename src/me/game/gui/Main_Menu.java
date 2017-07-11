@@ -1,5 +1,7 @@
 package me.game.gui;
 
+import oracle.jrockit.jfr.JFR;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -12,7 +14,7 @@ public class Main_Menu extends JFrame {
 
     private final JPanel mainPanel = new JPanel();
 
-    private final StartGameButton startGameButton = new StartGameButton();
+    private final StartGameButton startGameButton = new StartGameButton(this);
 
     public Main_Menu() {
         this.setVisible(true);
@@ -37,12 +39,17 @@ public class Main_Menu extends JFrame {
 }
 class StartGameButton extends CustomMainMenuButton{
 
-    public StartGameButton() {
+    JFrame jFrame;
+
+    public StartGameButton(JFrame jFrame) {
         super("Start");
+        this.jFrame = jFrame;
     }
 
     public void onClick() {
         System.out.println("Starting Game!");
+        Ingame_Gui ingame_gui = new Ingame_Gui();
+        this.jFrame.setVisible(false);
     }
 }
 
