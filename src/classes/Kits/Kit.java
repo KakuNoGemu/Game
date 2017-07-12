@@ -19,9 +19,9 @@ public abstract class Kit {
     private double health = health();
     private double healthMax = health;
 
-    abstract int health();
+    public abstract int health();
 
-    abstract int goldDrop();
+    public abstract int goldDrop();
 
     public abstract List<Attack> attackList();
 
@@ -85,7 +85,7 @@ public abstract class Kit {
         gold += kit.goldDrop();
     }
 
-    private void killed() {
+    public void killed() {
         isLiving = false;
     }
 
