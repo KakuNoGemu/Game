@@ -35,4 +35,9 @@ public class Swordsman extends Kit {
     public int goldDrop() {
         return 10;
     }
+
+    @Override
+    public String name() {
+        return "Swordsman";
+    }
 }

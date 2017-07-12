@@ -1,7 +1,7 @@
 package classes.Kits;
 
-import classes.Attacks.Attack;
 import classes.Attacks.Arrow;
+import classes.Attacks.Attack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,4 +35,10 @@ public class Marksman extends Kit {
     public int goldDrop() {
         return 10;
     }
+
+    @Override
+    public String name() {
+        return "Marksman";
+    }
+
 }

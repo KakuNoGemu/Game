@@ -22,8 +22,12 @@ public class Enemy1 extends Kit {
     }
 
     @Override
-     public int goldDrop() {
+    public int goldDrop() {
         return 10;
-     }
+    }
 
+    @Override
+    public String name() {
+        return "Enemy";
+    }
 }

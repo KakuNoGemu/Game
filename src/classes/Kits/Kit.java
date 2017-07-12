@@ -2,6 +2,7 @@ package classes.Kits;
 
 import classes.Attacks.Attack;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,23 +10,22 @@ import java.util.List;
  */
 public abstract class Kit {
 
-    abstract int health();
-
+    public List<Attack> attacks = new ArrayList<>();
     private int experience = 0;
-
     private int maxExperience = 100;
-
     private int level = 0;
-
     private int gold = 0;
-
     private boolean isLiving = true;
+    private double health = health();
+    private double healthMax = health;
+
+    abstract int health();
 
     abstract int goldDrop();
 
-    private double health = health();
-
     public abstract List<Attack> attackList();
+
+    public abstract String name();
 
     public double getHealth() {
         return health;
@@ -60,9 +60,20 @@ public abstract class Kit {
 
     private void levelUp() {
         level += 1;
+        healthMax += 10;
         experience -= maxExperience;
         maxExperience += 10;
         gold += 20;
+    }
+
+    public void heal(double amount) {
+
+        if (health + amount > healthMax) {
+            health = healthMax;
+        } else {
+            health += amount;
+        }
+
     }
 
     public void kill(Kit kit) {
@@ -76,6 +87,10 @@ public abstract class Kit {
 
     private void killed() {
         isLiving = false;
+    }
+
+    public void addAttack(Attack attack) {
+        attacks.add(attack);
     }
 
 }
