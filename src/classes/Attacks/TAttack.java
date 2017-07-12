@@ -1,5 +1,10 @@
 package classes.Attacks;
 
-public class TAttack {
-
+public class TAttack extends Attack {
+	
+	
+	@Override
+	public int damage() {
+		return 7;
+	}
 }

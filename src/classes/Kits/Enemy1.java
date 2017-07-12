@@ -11,6 +11,7 @@ public class Enemy1 extends Kit {
 	public int health() {
 
 		return 100;
+		
 	}
 
 	@Override
@@ -19,5 +20,7 @@ public class Enemy1 extends Kit {
 
 		attacks.add(new EAttack());
 		return attacks;
+		
+		
 	}
 }
