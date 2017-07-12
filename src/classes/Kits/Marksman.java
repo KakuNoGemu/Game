@@ -1,7 +1,8 @@
 package classes.Kits;
 
-import classes.Attacks.Arrow;
+import classes.Attacks.Bow;
 import classes.Attacks.Attack;
+import classes.Shop.ShopItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class Marksman extends Kit {
     public List<Attack> attackList() {
         List<Attack> attacks = new ArrayList<>();
 
-        attacks.add(new Arrow());
+        attacks.add(new Bow());
         return attacks;
     }
 
@@ -41,4 +42,13 @@ public class Marksman extends Kit {
         return "Marksman";
     }
 
+    @Override
+    public List<ShopItem> availableItems() {
+        List<ShopItem> availableItems = new ArrayList<>();
+        availableItems.add(new classes.Shop.HealingPotionI());
+        availableItems.add(new classes.Shop.HealingPotionII());
+        availableItems.add(new classes.Shop.HealingPotionIII());
+        availableItems.add(new classes.Shop.Crossbow());
+        return availableItems;
+    }
 }

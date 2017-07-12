@@ -29,4 +29,14 @@ public class HealingPotionIII extends ShopItem {
     public String name() {
         return "Healing Potion III";
     }
+
+    @Override
+    public String type() {
+        return "healing";
+    }
+
+    @Override
+    public int value() {
+        return 200;
+    }
 }

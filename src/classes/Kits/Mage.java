@@ -2,7 +2,9 @@ package classes.Kits;
 
 import classes.Attacks.Attack;
 import classes.Attacks.Fireball;
+import classes.Shop.ShopItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,5 +39,15 @@ public class Mage extends Kit {
     @Override
     public String name() {
         return "Mage";
+    }
+
+    @Override
+    public List<ShopItem> availableItems() {
+        List<ShopItem> availableItems = new ArrayList<>();
+        availableItems.add(new classes.Shop.HealingPotionI());
+        availableItems.add(new classes.Shop.HealingPotionII());
+        availableItems.add(new classes.Shop.HealingPotionIII());
+        availableItems.add(new classes.Shop.FireImpact());
+        return availableItems;
     }
 }

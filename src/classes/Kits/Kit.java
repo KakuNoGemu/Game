@@ -1,6 +1,7 @@
 package classes.Kits;
 
 import classes.Attacks.Attack;
+import classes.Shop.ShopItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,8 @@ public abstract class Kit {
     private double healthMax = health;
 
     public abstract int health();
+
+    public abstract List<ShopItem> availableItems();
 
     public abstract int goldDrop();
 

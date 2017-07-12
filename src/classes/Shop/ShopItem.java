@@ -18,6 +18,10 @@ public abstract class ShopItem {
 
     public abstract String name();
 
+    public abstract String type();
+
+    public abstract int value();
+
 
     public List<String> allKits() {
 

@@ -14,4 +14,9 @@ public class IronSword extends Attack {
     public boolean surfaceDamage() {
         return false;
     }
+
+    @Override
+    public String name() {
+        return "Iron Sword";
+    }
 }

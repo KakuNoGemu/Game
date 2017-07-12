@@ -32,4 +32,13 @@ public class Crossbow extends ShopItem{
         return "Crossbow";
     }
 
+    @Override
+    public String type() {
+        return "weapon";
+    }
+
+    @Override
+    public int value() {
+        return 40;
+    }
 }

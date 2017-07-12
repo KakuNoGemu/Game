@@ -2,6 +2,7 @@ package classes.Kits;
 
 import classes.Attacks.Attack;
 import classes.Attacks.EAttack;
+import classes.Shop.ShopItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,5 +30,11 @@ public class Enemy1 extends Kit {
     @Override
     public String name() {
         return "Enemy";
+    }
+
+    @Override
+    public List<ShopItem> availableItems() {
+        List<ShopItem> availableItems = new ArrayList<>();
+        return availableItems;
     }
 }

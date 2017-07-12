@@ -1,13 +1,15 @@
 package classes.Attacks;
 
+
 /**
- * Created by lukafaus17 on 12.07.2017.
+ * Created by lukafaus17 on 10.07.2017.
  */
-public class Crossbow extends Attack {
+public class Bow extends Attack {
+
 
     @Override
     public int damage() {
-        return 40;
+        return 30;
     }
 
     @Override
@@ -17,6 +19,6 @@ public class Crossbow extends Attack {
 
     @Override
     public String name() {
-        return "Crossbow";
+        return "Bow";
     }
 }

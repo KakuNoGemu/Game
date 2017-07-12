@@ -1,11 +1,10 @@
 package classes;
 
-import classes.Attacks.Fireball;
 import classes.Attacks.Attack;
 import classes.Kits.Mage;
 import classes.Kits.Marksman;
+import classes.XML.XMLSave;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,12 +23,16 @@ public class Main {
                 fireball.levelUp();
             }
         }
-        */
+
         Mage mage = new Mage();
         Marksman man = new Marksman();
-        List<Attack> attackList= mage.attackList();
+        List<Attack> attackList = mage.attackList();
         mage.attack(man, attackList.get(0));
         System.out.println(man.getHealth());
+        */
+
+        XMLSave x = new XMLSave();
+        System.out.println(x.SaveXML("settings.xml"));
 
     }
 

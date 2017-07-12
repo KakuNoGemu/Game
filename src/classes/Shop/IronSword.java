@@ -32,4 +32,14 @@ public class IronSword extends ShopItem {
     public String name() {
         return "Iron Sword";
     }
+
+    @Override
+    public String type() {
+        return "weapon";
+    }
+
+    @Override
+    public int value() {
+        return 30;
+    }
 }

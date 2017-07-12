@@ -3,7 +3,7 @@ package classes.Attacks;
 /**
  * Created by lukafaus17 on 12.07.2017.
  */
-public class Crossbow extends Attack {
+public class FireImpact extends Attack{
 
     @Override
     public int damage() {
@@ -12,11 +12,11 @@ public class Crossbow extends Attack {
 
     @Override
     public boolean surfaceDamage() {
-        return false;
+        return true;
     }
 
     @Override
     public String name() {
-        return "Crossbow";
+        return "Fire Impact";
     }
 }

@@ -11,6 +11,8 @@ public abstract class Attack {
 
     public abstract boolean surfaceDamage();
 
+    public abstract String name();
+
     public abstract int damage();
 
     public int getSkillLevel() {
