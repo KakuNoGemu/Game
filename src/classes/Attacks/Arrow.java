@@ -11,4 +11,9 @@ public class Arrow extends Attack {
     public int damage() {
         return 30;
     }
+
+    @Override
+    public boolean surfaceDamage() {
+        return false;
+    }
 }

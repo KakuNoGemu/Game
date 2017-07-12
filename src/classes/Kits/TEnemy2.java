@@ -20,4 +20,22 @@ public class TEnemy2 extends Kit {
 		attacks.add(new TAttack());
 		return attacks;
 	}
+
+	@Override
+	public int Experience() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int goldDrop() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String name() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -1,18 +1,18 @@
 package classes.Attacks;
 
-
 /**
- * Created by lukafaus17 on 10.07.2017.
+ * Created by lukafaus17 on 12.07.2017.
  */
-public class Sword extends Attack {
+public class Crossbow extends Attack {
 
     @Override
     public int damage() {
-        return 20;
+        return 40;
     }
 
     @Override
     public boolean surfaceDamage() {
         return false;
     }
+
 }

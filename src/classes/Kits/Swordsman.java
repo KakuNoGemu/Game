@@ -30,4 +30,21 @@ public class Swordsman extends Kit {
         attacks.add(new Sword());
         return attacks;
     }
+
+    @Override
+    public int goldDrop() {
+        return 10;
+    }
+
+    @Override
+    public String name() {
+        return "Swordsman";
+    }
+
+
+	@Override
+	public int Experience() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

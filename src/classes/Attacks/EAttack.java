@@ -7,4 +7,9 @@ public class EAttack extends Attack {
 	public int damage() {
 		return 15;
 	}
+
+	@Override
+	public boolean surfaceDamage() {
+		return false;
+	}
 }

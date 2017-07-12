@@ -1,7 +1,7 @@
 package classes.Kits;
 
-import classes.Attacks.Attack;
 import classes.Attacks.Arrow;
+import classes.Attacks.Attack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,4 +30,21 @@ public class Marksman extends Kit {
         attacks.add(new Arrow());
         return attacks;
     }
+
+    @Override
+    public int goldDrop() {
+        return 10;
+    }
+
+    @Override
+    public String name() {
+        return "Marksman";
+    }
+
+	@Override
+	public int Experience() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

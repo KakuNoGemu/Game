@@ -7,8 +7,9 @@ package classes.Attacks;
 public abstract class Attack {
 
     private int skillLevel = 0;
-
     private int usedTimes = 0;
+
+    public abstract boolean surfaceDamage();
 
     public abstract int damage();
 

@@ -1,6 +1,7 @@
 package me.game.gui;
 
 import me.game.data.GameKeyManager;
+import me.game.generator.MapGenerator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,14 +14,13 @@ import java.awt.event.KeyEvent;
 public class Ingame_Gui extends JFrame{
 
     private final JPanel mainPanel = new JPanel();
-    JPanel jPanel = new JPanel();
 
     private GameKeyManager gameKeyManager;
 
     public Ingame_Gui(){
         this.setVisible(true);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.setBounds(50,50,1280,720);
+        this.setBounds(50,50,646,669);
         this.setResizable(false);
 
 
@@ -32,19 +32,17 @@ public class Ingame_Gui extends JFrame{
     private void initComponenets(){
         this.mainPanel.setLayout(null);
 
-        this.jPanel.setBounds(50,50,50,50);
-        jPanel.setBackground(Color.ORANGE);
-
-
-        this.mainPanel.add(jPanel);
-
-        this.gameKeyManager = new GameKeyManager(jPanel);
+        this.gameKeyManager = new GameKeyManager();
         this.addKeyListener(new KeyAdapter() {
             public void keyReleased(KeyEvent e) {
                 gameKeyManager.onKeyPressed(e.getKeyCode());
             }
         });
 
+
+        MapGenerator mapGenerator = new MapGenerator("Level_2");
+        mapGenerator.loadMap().initTilePanes(this.mainPanel);
+        this.mainPanel.setBackground(Color.decode("#165900"));
     }
 
 

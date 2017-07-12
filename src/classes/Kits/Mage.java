@@ -1,9 +1,9 @@
 package classes.Kits;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import classes.Attacks.Attack;
+import classes.Attacks.Fireball;
+
+import java.util.List;
 
 
 /**
@@ -19,15 +19,29 @@ public class Mage extends Kit {
         return 120;
     }
 
-
     /**
      * @return attacks of the kit
      */
     @Override
     public List<Attack> attackList() {
-        List<Attack> attacks = new ArrayList<>();
 
-        attacks.add(new classes.Attacks.Fireball());
+        attacks.add(new Fireball());
         return attacks;
     }
+
+    @Override
+    public int goldDrop() {
+        return 10;
+    }
+
+    @Override
+    public String name() {
+        return "Mage";
+    }
+
+	@Override
+	public int Experience() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

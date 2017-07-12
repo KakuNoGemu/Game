@@ -7,4 +7,10 @@ public class TAttack extends Attack {
 	public int damage() {
 		return 7;
 	}
+
+	@Override
+	public boolean surfaceDamage() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
