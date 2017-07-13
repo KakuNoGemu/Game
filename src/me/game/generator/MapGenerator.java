@@ -42,7 +42,7 @@ public class MapGenerator {
             public List<Tile[]> tiles() {
                 return tilesMap;
             }
-        };^
+        };
     }
 
     public Tile[] tileRows(int row) {
