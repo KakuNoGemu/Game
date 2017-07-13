@@ -13,4 +13,9 @@ public class EAttack3 extends Attack {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public String name() {
+		return "Enemy Attack";
+	}
 }

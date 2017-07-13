@@ -1,8 +1,7 @@
 package classes.Shop;
 
-import classes.Kits.Kit;
+import classes.Characters.Character;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,26 +11,16 @@ public abstract class ShopItem {
 
     public abstract int cost();
 
-    public abstract void effect(Kit kit);
+    public abstract void effect(Character character);
 
-    public abstract List<String> kits();
+    public abstract List<Character> getAvaibleCharacters();
+
+    public abstract List<String> getAvaibleCharactersNames();
 
     public abstract String name();
 
     public abstract String type();
 
     public abstract int value();
-
-
-    public List<String> allKits() {
-
-        List<String> kits = new ArrayList<>();
-        kits.add("Mage");
-        kits.add("Marksman");
-        kits.add("Swordsman");
-        return kits;
-
-    }
-
 
 }

@@ -1,6 +1,6 @@
 package classes;
 
-import classes.Kits.Kit;
+import classes.Characters.Character;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Player {
 
-    public Kit player;
+    public Character player;
     private int experience = 0;
     private int maxExperience = 100;
     private int level = 0;
@@ -29,11 +29,11 @@ public class Player {
 
         if (availableKits.contains(kit)) {
             if (kit == "Mage") {
-                player = new classes.Kits.Mage();
+                player = new classes.Characters.Mage();
             } else if (kit == "Marksman") {
-                player = new classes.Kits.Marksman();
+                player = new classes.Characters.Marksman();
             } else if (kit == "Swordsman") {
-                player = new classes.Kits.Swordsman();
+                player = new classes.Characters.Swordsman();
             }
         }
     }
@@ -47,13 +47,13 @@ public class Player {
         gold += 20;
     }
 
-    public void kill(Kit kit) {
-        kit.killed();
+    public void kill(Character character) {
+        character.killed();
         experience += 10;
         if (experience >= maxExperience) {
             levelUp();
         }
-        gold += kit.goldDrop();
+        gold += character.goldDrop();
     }
 
 

@@ -1,4 +1,4 @@
-package classes.Kits;
+package classes.Characters;
 
 import classes.Attacks.Attack;
 import classes.Shop.ShopItem;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by lukafaus17 on 10.07.2017.
  */
-public abstract class Kit {
+public abstract class Character {
 
 
     public List<Attack> attacks = new ArrayList<>();
@@ -81,13 +81,13 @@ public abstract class Kit {
 
     }
 
-    public void kill(Kit kit) {
-        kit.killed();
+    public void kill(Character character) {
+        character.killed();
         experience += 10;
         if (experience >= maxExperience) {
             levelUp();
         }
-        gold += kit.goldDrop();
+        gold += character.goldDrop();
     }
 
     public void killed() {

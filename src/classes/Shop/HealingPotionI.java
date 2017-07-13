@@ -1,6 +1,7 @@
 package classes.Shop;
 
-import classes.Kits.Kit;
+import classes.Characters.Character;
+import classes.Characters.CharacterManager;
 
 import java.util.List;
 
@@ -16,13 +17,19 @@ public class HealingPotionI extends ShopItem {
     }
 
     @Override
-    public void effect(Kit kit) {
-        kit.heal(50);
+    public void effect(Character character) {
+        character.heal(50);
     }
 
     @Override
-    public List<String> kits() {
-        List<String> kits = allKits();
+    public List<String> getAvaibleCharactersNames() {
+        List<String> kits = CharacterManager.getPlayerKitsNames();
+        return kits;
+    }
+
+    @Override
+    public List<Character> getAvaibleCharacters() {
+        List<Character> kits = CharacterManager.getPlayerKits();
         return kits;
     }
 

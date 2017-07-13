@@ -1,11 +1,6 @@
 package classes;
 
-import classes.Attacks.Attack;
-import classes.Kits.Mage;
-import classes.Kits.Marksman;
 import classes.XML.XMLSave;
-
-import java.util.List;
 
 /**
  * Created by lukafaus17 on 11.07.2017.

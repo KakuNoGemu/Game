@@ -1,16 +1,17 @@
-package classes.Kits;
+package classes.Characters;
 
 import classes.Attacks.Attack;
 import classes.Attacks.EAttack;
+import classes.Shop.ShopItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Enemy2 extends Kit {
+public class Enemy1 extends Character {
 
     public int health() {
 
-        return 120;
+        return 100;
     }
 
     @Override
@@ -23,15 +24,17 @@ public class Enemy2 extends Kit {
 
     @Override
     public int goldDrop() {
-        // TODO Auto-generated method stub
-        return 0;
+        return 10;
     }
 
     @Override
     public String name() {
-        // TODO Auto-generated method stub
-        return null;
+        return "Enemy";
+    }
+
+    @Override
+    public List<ShopItem> availableItems() {
+        List<ShopItem> availableItems = new ArrayList<>();
+        return availableItems;
     }
 }
-
-

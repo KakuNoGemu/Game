@@ -1,6 +1,7 @@
 package classes.Shop;
 
-import classes.Kits.Kit;
+import classes.Characters.Character;
+import classes.Characters.Marksman;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +17,21 @@ public class Crossbow extends ShopItem{
     }
 
     @Override
-    public void effect(Kit kit) {
-        kit.addAttack(new classes.Attacks.Crossbow());
+    public void effect(Character character) {
+        character.addAttack(new classes.Attacks.Crossbow());
     }
 
     @Override
-    public List<String> kits() {
+    public List<String> getAvaibleCharactersNames() {
         List<String> kits = new ArrayList<>();
         kits.add("Marksman");
+        return kits;
+    }
+
+    @Override
+    public List<Character> getAvaibleCharacters() {
+        List<Character> kits = new ArrayList<>();
+        kits.add(new Marksman());
         return kits;
     }
 

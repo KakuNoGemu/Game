@@ -1,6 +1,7 @@
 package classes.Shop;
 
-import classes.Kits.Kit;
+import classes.Characters.Character;
+import classes.Characters.Mage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +17,21 @@ public class FireImpact extends ShopItem {
     }
 
     @Override
-    public void effect(Kit kit) {
-        kit.addAttack(new classes.Attacks.FireImpact());
+    public void effect(Character character) {
+        character.addAttack(new classes.Attacks.FireImpact());
     }
 
     @Override
-    public List<String> kits() {
+    public List<String> getAvaibleCharactersNames() {
         List<String> kits = new ArrayList<>();
         kits.add("Mage");
+        return kits;
+    }
+
+    @Override
+    public List<Character> getAvaibleCharacters() {
+        List<Character> kits = new ArrayList<>();
+        kits.add(new Mage());
         return kits;
     }
 

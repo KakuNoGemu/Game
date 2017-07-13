@@ -1,4 +1,4 @@
-package classes.Kits;
+package classes.Characters;
 
 import classes.Attacks.Attack;
 import classes.Attacks.Fireball;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by lukafaus17 on 10.07.2017.
  */
-public class Mage extends Kit {
+public class Mage extends Character {
 
     /**
      * @return health of the kit

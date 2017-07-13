@@ -1,7 +1,7 @@
-package classes.Kits;
+package classes.Characters;
 
 import classes.Attacks.Attack;
-import classes.Attacks.Sword;
+import classes.Attacks.Bow;
 import classes.Shop.ShopItem;
 
 import java.util.ArrayList;
@@ -10,16 +10,16 @@ import java.util.List;
 /**
  * Created by lukafaus17 on 10.07.2017.
  */
-public class Swordsman extends Kit {
+public class Marksman extends Character {
+
 
     /**
      * @return health of the kit
      */
     @Override
     public int health() {
-        return 300;
+        return 200;
     }
-
 
     /**
      * @return attacks of the kit
@@ -28,7 +28,7 @@ public class Swordsman extends Kit {
     public List<Attack> attackList() {
         List<Attack> attacks = new ArrayList<>();
 
-        attacks.add(new Sword());
+        attacks.add(new Bow());
         return attacks;
     }
 
@@ -39,7 +39,7 @@ public class Swordsman extends Kit {
 
     @Override
     public String name() {
-        return "Swordsman";
+        return "Marksman";
     }
 
     @Override
@@ -48,7 +48,8 @@ public class Swordsman extends Kit {
         availableItems.add(new classes.Shop.HealingPotionI());
         availableItems.add(new classes.Shop.HealingPotionII());
         availableItems.add(new classes.Shop.HealingPotionIII());
-        availableItems.add(new classes.Shop.IronSword());
+        availableItems.add(new classes.Shop.Crossbow());
         return availableItems;
     }
+
 }
