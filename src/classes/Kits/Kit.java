@@ -11,6 +11,7 @@ import java.util.List;
  */
 public abstract class Kit {
 
+
     public List<Attack> attacks = new ArrayList<>();
     private int experience = 0;
     private int maxExperience = 100;
@@ -39,10 +40,12 @@ public abstract class Kit {
     }
 
     private double dealtDamage(Attack attack, double dealtDamageMultiplier) {
+
         return attack.damage() * dealtDamageMultiplier;
+
     }
 
-    public void attack(Kit kit, Attack attack) {
+    public double attack(Attack attack) {
 
         String message;
         double dealtDamageMultiplier = attack.dealtDamageMultiplier();
@@ -56,8 +59,7 @@ public abstract class Kit {
 
         System.out.println(message);
         double damage = dealtDamage(attack, dealtDamageMultiplier);
-        kit.hurt(damage);
-        attack.weaponUsed();
+        return damage;
 
     }
 
@@ -95,5 +97,4 @@ public abstract class Kit {
     public void addAttack(Attack attack) {
         attacks.add(attack);
     }
-
 }

@@ -6,11 +6,11 @@ import classes.Attacks.EAttack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Enemy2 extends Kit {
+public class TEnemy extends Kit {
 
     public int health() {
 
-        return 120;
+        return 100;
     }
 
     @Override
@@ -19,6 +19,8 @@ public class Enemy2 extends Kit {
 
         attacks.add(new EAttack());
         return attacks;
+
+
     }
 
     @Override
@@ -33,5 +35,4 @@ public class Enemy2 extends Kit {
         return null;
     }
 }
-
 

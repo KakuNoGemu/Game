@@ -1,7 +1,7 @@
 package classes.Kits;
 
-import classes.Attacks.Bow;
 import classes.Attacks.Attack;
+import classes.Attacks.Bow;
 import classes.Shop.ShopItem;
 
 import java.util.ArrayList;
@@ -51,4 +51,5 @@ public class Marksman extends Kit {
         availableItems.add(new classes.Shop.Crossbow());
         return availableItems;
     }
+
 }

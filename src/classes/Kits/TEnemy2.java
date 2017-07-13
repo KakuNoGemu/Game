@@ -1,23 +1,23 @@
 package classes.Kits;
 
 import classes.Attacks.Attack;
-import classes.Attacks.EAttack;
+import classes.Attacks.TAttack;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Enemy2 extends Kit {
+public class TEnemy2 extends Kit {
 
     public int health() {
 
-        return 120;
+        return 600;
     }
 
     @Override
     public List<Attack> attackList() {
         List<Attack> attacks = new ArrayList<>();
 
-        attacks.add(new EAttack());
+        attacks.add(new TAttack());
         return attacks;
     }
 
@@ -33,5 +33,3 @@ public class Enemy2 extends Kit {
         return null;
     }
 }
-
-
