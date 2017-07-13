@@ -1,8 +1,13 @@
 package me.game.gui;
 
+import me.game.Game;
 import me.game.data.GameKeyManager;
+import me.game.data.entity.Trigger;
+import me.game.data.tiles.TileMap;
 import me.game.generator.MapGenerator;
+import me.game.utils.Utils;
 
+import javax.rmi.CORBA.Util;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -13,7 +18,9 @@ import java.awt.event.KeyEvent;
  */
 public class Ingame_Gui extends JFrame{
 
-    private final JPanel mainPanel = new JPanel();
+    private final JLayeredPane mainPanel = new JLayeredPane();
+
+    private JPanel player = new JPanel();
 
     private GameKeyManager gameKeyManager;
 
@@ -40,8 +47,20 @@ public class Ingame_Gui extends JFrame{
         });
 
 
-        MapGenerator mapGenerator = new MapGenerator("Level_2");
-        mapGenerator.loadMap().initTilePanes(this.mainPanel);
+        MapGenerator mapGenerator = new MapGenerator("Level_1");
+        TileMap currentTileMap = mapGenerator.generateMap();
+        currentTileMap.initTilePanes(this.mainPanel);
+
+        Game.getGame().gameData.getPlayer().setPanel(this.player);
+        Game.getGame().gameData.getPlayer().setPositions(mapGenerator.getStartPosX(),mapGenerator.getStartPosY());
+        this.mainPanel.add(Game.getGame().gameData.getPlayer().entityPanel());
+        this.mainPanel.moveToFront(Game.getGame().gameData.getPlayer().entityPanel());
+
+
+        Trigger trigger = new Trigger(0,0);
+        this.mainPanel.add(trigger.entityPanel());
+        this.mainPanel.moveToFront(trigger.entityPanel());
+
         this.mainPanel.setBackground(Color.decode("#165900"));
     }
 

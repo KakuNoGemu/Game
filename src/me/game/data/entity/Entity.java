@@ -17,10 +17,15 @@ public abstract class Entity {
 
     private int WIDTH = 32, HEIGHT = 64;
 
+    protected String name;
+
     public Entity() {
+        this("");
+    }
+    public Entity(String name){
         addEntityToList();
         boundingBox = new BoundingBox(this.getX(), this.getY(), WIDTH, HEIGHT);
-
+        this.name = name;
     }
 
     public void addEntityToList() {
@@ -28,6 +33,8 @@ public abstract class Entity {
     }
 
     public abstract JPanel entityPanel();
+
+    public abstract String getName();
 
     public void init() {
         this.x = entityPanel().getX();
@@ -53,9 +60,17 @@ public abstract class Entity {
         updateBounds();
     }
 
+    public void setHEIGHT(int HEIGHT) {
+        this.HEIGHT = HEIGHT;
+    }
+
+    public void setWIDTH(int WIDTH) {
+        this.WIDTH = WIDTH;
+    }
+
     private void updateBounds() {
         this.boundingBox.setRectangle(getX(), getY(), WIDTH, HEIGHT);
-        this.entityPanel().setBounds(getX(), getY(), this.entityPanel().getWidth(), this.entityPanel().getHeight());
+        this.entityPanel().setBounds(getX(), getY(), WIDTH, HEIGHT);
     }
 
     public boolean checkCollision(Entity entity) {
@@ -64,5 +79,4 @@ public abstract class Entity {
         }
         return false;
     }
-    public void whatOnCollision() {}
 }

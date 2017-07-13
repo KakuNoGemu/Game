@@ -1,6 +1,9 @@
 package me.game.data.tiles;
 
+import me.game.Game;
+
 import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
 /**
@@ -10,17 +13,20 @@ public abstract class TileMap {
 
     public abstract List<Tile[]> tiles();
 
-    public void initTilePanes(JPanel jPanel) {
-        int x = 0;
-        int y = 0;
+    private int startX, startY;
+
+    public void setStartPos(int x, int y) {
+        this.startX = x;
+        this.startY = y;
+    }
+
+    public void initTilePanes(JLayeredPane jPanel) {
         for (Tile[] tiles : tiles()) {
             for (Tile tile : tiles) {
-                tile.setPos(x, y);
-                jPanel.add(tile.getTilePanel());
-                x++;
+                JPanel t = tile.getTilePanel();
+                jPanel.add(t);
+                jPanel.moveToBack(t);
             }
-            x = 0;
-            y++;
         }
     }
 

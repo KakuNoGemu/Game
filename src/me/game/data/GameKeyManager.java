@@ -21,22 +21,18 @@ public class GameKeyManager {
     public void onKeyPressed(int keyCode) {
         switch (keyCode) {
             case KeyEvent.VK_A:
-                System.out.println("LEFT");
                 this.playerMovement.handleLeftMovement();
                 checkForCollision();
                 break;
             case KeyEvent.VK_W:
-                System.out.println("UP");
                 this.playerMovement.handleUpMovement();
                 checkForCollision();
                 break;
             case KeyEvent.VK_S:
-                System.out.println("DOWN");
                 this.playerMovement.handleDownMovement();
                 checkForCollision();
                 break;
             case KeyEvent.VK_D:
-                System.out.println("RIGHT");
                 this.playerMovement.handleRightMovement();
                 checkForCollision();
                 break;
@@ -45,7 +41,6 @@ public class GameKeyManager {
 
     public void checkForCollision() {
         Player player = Game.getGame().gameData.getPlayer();
-
         for (Entity entity : Game.getGame().gameData.getAllEntitys()) {
             if (player.checkCollision(entity))
                 player.onCollision(entity);

@@ -1,89 +1,128 @@
 package me.game.generator;
 
-import me.game.Game;
-import me.game.data.tiles.Tile;
-import me.game.data.tiles.TileMap;
-import me.game.data.tiles.tiles.Tile_Grass;
-import me.game.data.tiles.tiles.Tile_Wall;
-import me.game.data.tiles.tiles.Tile_Water;
+import me.game.data.entity.Trigger;
+import me.game.data.tiles.*;
+import me.game.data.tiles.tiles.*;
+import me.game.utils.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 /**
  * Created by michtros17 on 12.07.2017.
  */
 public class MapGenerator {
 
-    private String mapName;
+    private List<Tile> allTiles;
 
-    private List<String> allTilesList;
+    private int startPosX, startPosY;
+
+    private String mapName;
 
     public MapGenerator(String mapName) {
         this.mapName = mapName;
-        this.allTilesList = allTiles();
+        this.allTiles = aviableTiles();
     }
 
-    public TileMap loadMap() {
+    public TileMap generateMap() {
+        List<Tile[]> mapTiles = new ArrayList<>();
 
-        List<Tile[]> tilesMap = new ArrayList<>();
-
-        for (int i = 0; i < allTilesList.size(); i++) {
-            Tile[] rowAtPos = tileRows(i);
-            tilesMap.add(rowAtPos);
+        for (int i = 0; i < 20; i++) {
+            mapTiles.add(tilesAtRow(i));
         }
 
-        return new TileMap() {
+        TileMap tileMap = new TileMap() {
             @Override
             public List<Tile[]> tiles() {
-                return tilesMap;
+                return mapTiles;
             }
         };
+        tileMap.setStartPos(getStartPosX(), getStartPosY());
+
+        return tileMap;
     }
 
-    public Tile[] tileRows(int row) {
-        Tile[] returnTileRow = new Tile[20];
-        String curRow = allTilesList.get(row);
-
-        int pos = 0;
-
-        for (char c : curRow.toCharArray()) {
-            switch (c) {
-                case 'W':
-                    returnTileRow[pos] = new Tile_Water();
-                    break;
-                case 'w':
-                    returnTileRow[pos] = new Tile_Wall();
-                    break;
-                case 'G':
-                    returnTileRow[pos] = new Tile_Grass();
-                    break;
-            }
-            pos++;
-        }
-
-        return returnTileRow;
+    public int getStartPosX() {
+        return startPosX;
     }
 
-    public List<String> allTiles() {
-        List<String> tiles = new ArrayList<>();
-        try {
-            InputStream inputStream = Game.class.getResourceAsStream("/assets/maps/" + mapName + ".map");
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                tiles.add(line);
+    public int getStartPosY() {
+        return startPosY;
+    }
+
+    public Tile[] tilesAtRow(int rowID) {
+        Tile[] tiles = new Tile[20];
+        int id = 0;
+        for (Tile tile : allTiles) {
+            if (tile.getY() == rowID) {
+                tiles[id] = tile;
+                id++;
             }
-            bufferedReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return tiles;
     }
 
+    public List<Tile> aviableTiles() {
+        List<Tile> tiles = new ArrayList<>();
+
+        try {
+            File input = Utils.getFromStream("/assets/maps/" + this.mapName + ".csv");
+            String line;
+            String cvsSplitBy = ",";
+
+            BufferedReader br = new BufferedReader(new FileReader(input));
+            while ((line = br.readLine()) != null) {
+                String[] curTile = line.split(cvsSplitBy);
+                String name = curTile[0];
+                String isSolid = curTile[3];
+                int x = Integer.parseInt(curTile[1]);
+                int y = Integer.parseInt(curTile[2]);
+                if (name.equalsIgnoreCase("spawnpoint")) {
+                    this.startPosX = x;
+                    this.startPosY = y;
+                } else {
+                    Tile currentTile;
+                    switch (name) {
+                        case "water":
+                            currentTile = new WaterTile();
+                            break;
+                        case "wall":
+                            currentTile = new WallTile();
+                            break;
+                        case "grass":
+                            currentTile = new GrassTile();
+                            break;
+                        default:
+                            currentTile = new WallTile();
+                            break;
+                    }
+
+                    boolean isSol = false;
+                    switch (isSolid) {
+                        case "solid":
+                            isSol = true;
+                            break;
+                        case "nonSolid":
+                            isSol = false;
+                            break;
+                        default:
+                            isSol = false;
+                            break;
+                    }
+                    currentTile.setPos(x, y);
+                    if (isSol) {
+                        Trigger trigger = new Trigger(x, y);
+                        trigger.setSolide(true);
+                    }
+                    tiles.add(currentTile);
+                }
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return tiles;
+    }
 }

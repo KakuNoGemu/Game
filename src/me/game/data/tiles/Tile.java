@@ -13,19 +13,27 @@ public abstract class Tile {
 
     private int x, y;
 
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
     public void setPos(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public abstract String getTileName();
+    public abstract String getName();
 
     public ImageIcon getTileIcon() {
-        URL imgURL = getClass().getResource("/assets/sprites/tiles/" + getTileName() + ".png");
+        URL imgURL = getClass().getResource("/assets/sprites/tiles/" + getName() + ".png");
         if (imgURL != null) {
             return new ImageIcon(imgURL, "");
         } else {
-            System.err.println("Couldn't find file: " + "/assets/sprites/tiles/" + getTileName() + ".png");
+            System.err.println("Couldn't find file: " + "/assets/sprites/tiles/" + getName() + ".png");
             return null;
         }
     }
@@ -36,7 +44,6 @@ public abstract class Tile {
         this.tilePanel.setBounds(x * 32, y * 32, 32, 32);
         JLabel iconLabel = new JLabel(getTileIcon());
         this.tilePanel.add(iconLabel, BorderLayout.CENTER);
-
         return tilePanel;
     }
 }

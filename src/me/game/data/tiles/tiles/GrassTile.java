@@ -5,10 +5,9 @@ import me.game.data.tiles.Tile;
 /**
  * Created by michtros17 on 12.07.2017.
  */
-public class Tile_Grass extends Tile {
-
+public class GrassTile extends Tile {
     @Override
-    public String getTileName() {
+    public String getName() {
         return "grass";
     }
 }
