@@ -1,5 +1,22 @@
 package classes.Attacks;
 
-public class Curse {
+/**
+ * Created by lukafaus17 on 12.07.2017.
+ */
+public class Curse extends Attack {
 
+    @Override
+    public int damage() {
+        return 35;
+    }
+
+    @Override
+    public boolean surfaceDamage() {
+        return false;
+    }
+
+    @Override
+    public String name() {
+        return "Curse";
+    }
 }
